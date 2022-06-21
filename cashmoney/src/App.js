@@ -1,5 +1,4 @@
 // Make sure to import useState
-import 'dotenv/config'
 import React, { useEffect, useState } from "react";
 import './styles/App.css';
 import { ethers } from "ethers";
@@ -14,7 +13,7 @@ const DISCORD_LINK = `https://discord.gg/hWjR9HCJ`;
 
 // Add the domain you will be minting
 const tld = '.cashmoney';
-const CONTRACT_ADDRESS = process.env['CONTRACT_ADDRESS']
+const CONTRACT_ADDRESS = "0x6C0151bb44B7fa19E643e04568A5CA088B634160";
 const polygonScan = 'https://mumbai.polygonscan.com/token/0xb7792b94296ec6e66ba2780f4b9a68fd911a909f'
 
 const App = () => {
