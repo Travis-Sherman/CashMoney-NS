@@ -152,7 +152,7 @@ const App = () => {
 	console.log("Minting domain", domain, "with price", price);
 	try {
     	const { ethereum } = window;
-    	(ethereum);
+    	(ethereum); // eslint-disable-line
       {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
