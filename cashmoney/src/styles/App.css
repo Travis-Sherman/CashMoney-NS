@@ -3,6 +3,7 @@
   background-color: #0d1116;
   text-align: center;
   color: white;
+  padding-bottom: 10%;
 }
 
 p {
@@ -11,7 +12,7 @@ p {
 
 .container {
   height: 100%;
-  background-color: #181818;
+  background-color: #0d1116;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -89,11 +90,11 @@ header{
   flex-direction: column;
   margin: auto;
   max-width: 550px;
-  height: 100%
+  height: 100%;
 }
 
 .connect-wallet-container img {
-  padding-bottom: 20px;
+  padding-bottom: 10%;
 }
 
 .connect-wallet-button {
@@ -151,7 +152,7 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 5%;
 }
 
 .twitter-logo {
