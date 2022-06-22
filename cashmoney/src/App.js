@@ -14,7 +14,7 @@ const DISCORD_LINK = `https://discord.gg/hWjR9HCJ`;
 // Add the domain you will be minting
 const tld = '.cashmoney';
 const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
-const polygonScan = 'https://mumbai.polygonscan.com/token/0xb7792b94296ec6e66ba2780f4b9a68fd911a909f'
+const polygonScan = 'https://mumbai.polygonscan.com/token/' + CONTRACT_ADDRESS;
 
 const App = () => {
 	//Just a state variable we use to store our user's public wallet. Don't forget to import useState at the top.
