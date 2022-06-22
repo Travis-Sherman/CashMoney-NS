@@ -9,11 +9,11 @@ import ethLogo from './assets/ethlogo.png';
 import { networks } from './utils/networks';
 import { ToastContainer, toast } from 'react-toastify';
 
-const DISCORD_LINK = `https://discord.gg/hWjR9HCJ`;
+const DISCORD_LINK = process.env.REACT_APP_DISCORD_LINK;
 
 // Add the domain you will be minting
 const tld = '.cashmoney';
-const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
+const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
 const polygonScan = 'https://mumbai.polygonscan.com/token/' + CONTRACT_ADDRESS;
 
 const App = () => {
@@ -152,7 +152,7 @@ const App = () => {
 	console.log("Minting domain", domain, "with price", price);
 	try {
     	const { ethereum } = window;
-    	(ethereum);
+    	(ethereum); // eslint-disable-line
       {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
