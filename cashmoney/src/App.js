@@ -147,7 +147,7 @@ const App = () => {
 	// Calculate price based on length of domain (change this to match your contract)	
 	// 3 chars = 0.5 MATIC, 4 chars = 0.3 MATIC, 5 or more = 0.1 MATIC
 	const price = domain.length === 3 ? '0.5' : domain.length === 4 ? '0.3' : '0.1';
-	console.log("Minting domain", domain, "with price", price);
+	alert("Minting domain", domain, "with price", price);
 	try {
     	const { ethereum } = window;
     	(ethereum); // eslint-disable-line
@@ -226,7 +226,8 @@ const App = () => {
         }
     	}
   	} catch(error) {
-    	console.log(error);
+    	alert(error.data.message);
+      console.log(error.data.message);
   	}
 }
 
