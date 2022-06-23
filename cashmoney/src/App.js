@@ -7,7 +7,7 @@ import contractABI from './utils/contractABI.json';
 import polygonLogo from './assets/polygonlogo.png';
 import ethLogo from './assets/ethlogo.png';
 import { networks } from './utils/networks';
-import { ToastContainer, toast } from 'react-toastify';
+
 
 const DISCORD_LINK = process.env.REACT_APP_DISCORD_LINK;
 
@@ -33,8 +33,6 @@ const App = () => {
 	const [editing, setEditing] = useState(false);
   const [mints, setMints] = useState([]);
   const [loading, setLoading] = useState(false);
-
-
   // Implement your connectWallet method here
 	const connectWallet = async () => {
 
@@ -149,7 +147,7 @@ const App = () => {
 	// Calculate price based on length of domain (change this to match your contract)	
 	// 3 chars = 0.5 MATIC, 4 chars = 0.3 MATIC, 5 or more = 0.1 MATIC
 	const price = domain.length === 3 ? '0.5' : domain.length === 4 ? '0.3' : '0.1';
-	console.log("Minting domain", domain, "with price", price);
+	alert("Minting domain", domain, "with price", price);
 	try {
     	const { ethereum } = window;
     	(ethereum); // eslint-disable-line
@@ -166,48 +164,48 @@ const App = () => {
         // Check if the transaction was successfully completed
         if (receipt.status === 1) {
           console.log("Domain minted! https://mumbai.polygonscan.com/tx/"+tx.hash);
-          toast('🦄 Domain minted!');
+          alert("💰 Domain Minted")
           // Set all the record data for the domain if not empty
           if(superPwr !== ''){
             tx = await contract.setRecord(domain, superPwr);
             await tx.wait();
             console.log("SuperPower record set! https://mumbai.polygonscan.com/tx/"+tx.hash);
-            toast('💪 SuperPower set!');
+            alert("💪 Super power minted");
           }
           
           if(avatar !== ''){
             tx = await contract.setAvatar(domain, avatar);
             await tx.wait();
             console.log("Avatar record set! https://mumbai.polygonscan.com/tx/"+tx.hash);
-            toast('😜 Avatar set!');
+            alert("😜 Avatar minted");
           }
 
           if(favNFT !== ''){
             tx = await contract.setFavNFT(domain, avatar);
             await tx.wait();
             console.log("Fav NFT record set! https://mumbai.polygonscan.com/tx/"+tx.hash);
-            toast('🖼 NFT set!');
+            alert("🖼 Favorite NFT minted")
           }
           
           if(discord !== ''){
             tx = await contract.setDiscord(domain, avatar);
             await tx.wait();
             console.log("Discord username record set! https://mumbai.polygonscan.com/tx/"+tx.hash);
-            toast('💬 Discord set!');
+            alert("💬 Discord set")
           }
 
           if(twitter !== ''){
             tx = await contract.setTwitter(domain, avatar);
             await tx.wait();
             console.log("Twitter username record set! https://mumbai.polygonscan.com/tx/"+tx.hash);
-            toast('🐦 Twitter set!');
+            alert("🐦 Twitter set")
           }
 
           if(favSong !== ''){
             tx = await contract.setFavSong(domain, avatar);
             await tx.wait();
             console.log("Fav song record set! https://mumbai.polygonscan.com/tx/"+tx.hash);
-            toast('🎵 Favorite song set!');
+            alert("🎵 Favortite song set!")
           }
             
           // Call fetchMints after 2 seconds
@@ -228,7 +226,8 @@ const App = () => {
         }
     	}
   	} catch(error) {
-    	console.log(error);
+    	alert(error.data.message);
+      console.log(error.data.message);
   	}
 }
 
@@ -340,7 +339,8 @@ const updateDomain = async () => {
 					<input
 						type="text"
 						value={domain}
-						placeholder='domain'
+            maxLength={10}
+						placeholder='Domain'
 						onChange={e => setDomain(e.target.value)}
 					/>
 					<p className='tld'> {tld} </p>
@@ -473,15 +473,8 @@ const editRecord = (name) => {
               { currentAccount ? <p> Wallet: {currentAccount.slice(0, 6)}...{currentAccount.slice(-4)} </p> : <p> Not connected </p> }
             </div>
           </header>
-              <ToastContainer
-                position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                />
           <div>
+            <h2>Once submitted, please wait until all transactions are finished before refreshing page!</h2>
             <h3>Check out the transactions <a href={polygonScan} target="_blank">here</a> </h3>
           </div>
         </div>
