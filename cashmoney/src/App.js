@@ -465,7 +465,7 @@ const editRecord = (name) => {
             
             <div className="left">
               <p className="title">💰🍾 Cash Money Name Service</p>
-              <p className="subtitle">If you get 💸 this is the name serice in web3 for you!</p>
+              <p className="subtitle">If you get the 💰, this is the best name serice in web3 for you!</p>
             </div>
             {/* Display a logo and wallet connection status*/}
             <div className="right">
