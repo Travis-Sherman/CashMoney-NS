@@ -312,7 +312,7 @@ const updateDomain = async () => {
 	// Render Methods
 	const renderNotConnectedContainer = () => (
 		<div className="connect-wallet-container">
-			<img src="https://media.giphy.com/media/Lajc1cfRE9z8NIeKrH/giphy.gif" alt="Rdc Cash Money gif" />
+			<img src="https://media4.giphy.com/media/LdOyjZ7io5Msw/200.webp?cid=ecf05e47wmumqd5423ozrwh4skehlx9rabwsw2luh1fdus2o&rid=200.webp&ct=g" alt="Rdc Cash Money gif" />
 			<button className="cta-button connect-wallet-button" 
       onClick={connectWallet}>
 				Connect Wallet
@@ -465,7 +465,7 @@ const editRecord = (name) => {
             
             <div className="left">
               <p className="title">💰🍾 Cash Money Name Service</p>
-              <p className="subtitle">If you get 💸 this is the Best API on the blockchain for you!</p>
+              <p className="subtitle">If you get 💸 this is the name serice in web3 for you!</p>
             </div>
             {/* Display a logo and wallet connection status*/}
             <div className="right">
