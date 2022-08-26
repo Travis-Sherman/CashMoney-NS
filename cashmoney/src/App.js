@@ -278,32 +278,65 @@ useEffect(() => {
 
 
 const updateDomain = async () => {
-    if (!superPwr || !domain) { return }
+    if ((!superPwr && !avatar) || !domain) { return }
     setLoading(true);
-    console.log("Updating domain", domain, "with record", superPwr);
+
+    if(superPwr){
+      console.log("Updating domain's super power", domain, "with record", superPwr);
       try {
-      const { ethereum } = window;
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI.abi, signer);
+        const { ethereum } = window;
+        if (ethereum) {
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const signer = provider.getSigner();
+          const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI.abi, signer);
 
-        let tx = await contract.setRecord(domain, superPwr);
-        await tx.wait();
-        console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
+          let tx = await contract.setRecord(domain, superPwr);
+          await tx.wait();
+          console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
 
-        fetchMints();
-        setSuperPwr('');
-        setDomain('');
-        setAvatar('');
-        setFavNFT('');
-        setDiscord('');
-        setTwitter('');
-        setFavSong('');
-      }
+          fetchMints();
+          setSuperPwr('');
+          setDomain('');
+          setAvatar('');
+          setFavNFT('');
+          setDiscord('');
+          setTwitter('');
+          setFavSong('');
+        }
       } catch(error) {
         console.log(error);
       }
+    }
+
+    if(avatar){
+
+      console.log("Updating domain's avatar", domain, "with record", avatar);
+      try {
+        const { ethereum } = window;
+        if (ethereum) {
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const signer = provider.getSigner();
+          const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI.abi, signer);
+
+          let tx = await contract.setAvatar(domain, avatar);
+          await tx.wait();
+          console.log("Record set https://mumbai.polygonscan.com/tx/"+tx.hash);
+
+          fetchMints();
+          setSuperPwr('');
+          setDomain('');
+          setAvatar('');
+          setFavNFT('');
+          setDiscord('');
+          setTwitter('');
+          setFavSong('');
+        }
+      } catch(error) {
+        console.log(error);
+      }
+    }
+    
+
     setLoading(false);
 }
 
@@ -396,7 +429,7 @@ const updateDomain = async () => {
 						<div className="button-container">
 							
 							<button className='cta-button mint-button' disabled={loading} onClick={updateDomain}>
-								Set Super power
+								Change records
 							</button>  
 				
 							<button className='cta-button mint-button' onClick={() => {setEditing(false)}}>
