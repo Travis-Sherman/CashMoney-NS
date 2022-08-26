@@ -3,7 +3,7 @@
   background-color: #0d1116;
   text-align: center;
   color: white;
-  padding-bottom: 10%;
+  padding-bottom: 25%;
 }
 
 p {
@@ -90,7 +90,7 @@ header{
   flex-direction: column;
   margin: auto;
   max-width: 550px;
-  height: 100%;
+  height: auto;
 }
 
 .connect-wallet-container img {
